@@ -1,0 +1,22 @@
+stages:
+  - plan
+  - apply
+
+plan:
+  stage: plan
+  variables: 
+        access_key: ${AWS_ACCESS_KEY}
+        secret_key: ${AWS_SECRET_KEY}
+        pub_key: ${AWS_PUB_KEY}
+  script:
+    - terraform init
+    - terraform plan
+
+apply:
+  stage: apply
+  script:
+    - terraform init
+    - terraform apply
+  when: manual
+  only:
+    - master
