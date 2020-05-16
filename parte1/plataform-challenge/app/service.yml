@@ -7,7 +7,7 @@ spec:
   template:
     spec:
       containers:
-        - image: helloworld-kotlin
+        - image: apmartins85/helloworld-kotlin
           env:
             - name: TARGET
               value: "Kotlin Sample v1"
