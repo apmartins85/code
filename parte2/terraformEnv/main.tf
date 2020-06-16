@@ -6,7 +6,7 @@ resource "aws_launch_configuration" "helloworld" {
     image_id=  "${var.ami}"
     instance_type = "${var.instance_type}"
     security_groups = ["${aws_security_group.websg.id}"]
-    key_name = "${aws_key_pair.myawskeypair.key_name}"
+    key_name = "${var.pub_key}"
     user_data = "${file("user-data/dockerImage.sh")}"
     lifecycle {
         create_before_destroy = true
